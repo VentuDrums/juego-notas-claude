@@ -72,7 +72,7 @@ Comandos: `node --test` (tests) · `python3 -m http.server 8000` (probar en loca
   - Archivos: `src/duel.js`, `tests/duel.test.js`
   - Depende de: 1
 
-- [ ] **Tarea 7: Pantalla dividida para dos equipos** (M)
+- [x] **Tarea 7: Pantalla dividida para dos equipos** (M)
   - Qué: configuración (nivel y 5, 10 o 15 rondas). Partida en dos mitades con la misma nota, un solo sonido de nota, multitáctil con Pointer Events y bloqueo visual del equipo que falla. Resultado con ganador y revancha.
   - Aceptación:
     - Partida de 10 rondas completa.

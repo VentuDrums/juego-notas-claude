@@ -45,10 +45,10 @@ i18n.js ───┤   audio.js ──┤
 
 ### Fase 3: modo pizarra
 - [x] Tarea 6: Reglas del duelo
-- [ ] Tarea 7: Pantalla dividida para dos equipos
+- [x] Tarea 7: Pantalla dividida para dos equipos
 
 ### Punto de control 3
-- [ ] Partida de 10 rondas completa en 16:9 con toques simultáneos (simulados)
+- [x] Partida de 10 rondas completa en 16:9 con toques simultáneos (simulados)
 - [ ] Revisión contigo
 
 ### Fase 4: publicar

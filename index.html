@@ -18,7 +18,7 @@
       <h2 data-i18n="chooseMode"></h2>
       <div class="actions">
         <button type="button" id="solo" class="primary" data-i18n="solo"></button>
-        <button type="button" id="board" data-i18n="board" disabled></button>
+        <button type="button" id="board" data-i18n="board"></button>
       </div>
       <div class="langs">
         <button type="button" data-lang="es">Español</button>
@@ -54,6 +54,53 @@
       <div class="actions">
         <button type="button" id="again" class="primary" data-i18n="playAgain"></button>
         <button type="button" data-go="choose-level" data-i18n="changeLevel"></button>
+        <button type="button" data-go="home" data-i18n="home"></button>
+      </div>
+    </section>
+
+    <section id="board-setup" data-screen hidden>
+      <h2 data-i18n="boardSetup"></h2>
+      <h3 data-i18n="level"></h3>
+      <div id="board-levels" class="choice"></div>
+      <h3 data-i18n="rounds"></h3>
+      <div id="board-rounds" class="choice">
+        <button type="button" data-rounds="5">5</button>
+        <button type="button" data-rounds="10">10</button>
+        <button type="button" data-rounds="15">15</button>
+      </div>
+      <div class="actions">
+        <button type="button" id="board-start" class="primary" data-i18n="start"></button>
+        <button type="button" data-go="home" data-i18n="back"></button>
+      </div>
+    </section>
+
+    <section id="board-play" data-screen hidden>
+      <div class="bar">
+        <button type="button" class="exit" data-go="board-setup" data-i18n="exit"></button>
+        <span id="round"></span>
+      </div>
+      <div class="timer"><div id="board-time"></div></div>
+      <div class="teams">
+        <div class="team" data-team="red">
+          <div class="team-head"><span data-i18n="red"></span><span class="team-score"></span></div>
+          <div class="team-staff"></div>
+          <p class="team-feedback" aria-live="polite"></p>
+          <div class="team-answers"></div>
+        </div>
+        <div class="team" data-team="blue">
+          <div class="team-head"><span data-i18n="blue"></span><span class="team-score"></span></div>
+          <div class="team-staff"></div>
+          <p class="team-feedback" aria-live="polite"></p>
+          <div class="team-answers"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="board-result" data-screen hidden>
+      <h2 id="board-winner"></h2>
+      <p id="board-score" class="big"></p>
+      <div class="actions">
+        <button type="button" id="board-again" class="primary" data-i18n="playAgain"></button>
         <button type="button" data-go="home" data-i18n="home"></button>
       </div>
     </section>
