@@ -16,7 +16,7 @@ Comandos: `node --test` (tests) · `python3 -m http.server 8000` (probar en loca
   - Archivos: `src/notes.js`, `src/i18n.js`, `tests/notes.test.js`, `tests/i18n.test.js`
   - Depende de: nada
 
-- [ ] **Tarea 2: Una nota en pantalla y responder** (M)
+- [x] **Tarea 2: Una nota en pantalla y responder** (M)
   - Qué: `index.html` y `styles.css` mínimos. `staff.js` dibuja en SVG el pentagrama con clave de sol y la nota. Debajo hay 7 botones; al pulsar uno se ve "¡Bien!" o "Inténtalo otra vez" y sale otra nota (nivel 3 fijo, sin puntos).
   - Aceptación:
     - Las notas se dibujan en su sitio.

@@ -27,11 +27,11 @@ i18n.js ───┤   audio.js ──┤
 
 ### Fase 1: primera porción jugable
 - [x] Tarea 1: Lógica de notas y textos
-- [ ] Tarea 2: Una nota en pantalla y responder
+- [x] Tarea 2: Una nota en pantalla y responder
 
 ### Punto de control 1
-- [ ] Los tests pasan
-- [ ] Se ve una nota, se pulsa un botón y dice si es correcto
+- [x] Los tests pasan
+- [x] Se ve una nota, se pulsa un botón y dice si es correcto
 - [ ] Revisión contigo (captura en móvil)
 
 ### Fase 2: modo individual completo
