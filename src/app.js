@@ -107,7 +107,7 @@ function finishRound(timedOut) {
   }
   board.match = endRound(board.match, board.round);
   renderBoardScore();
-  state.pending = setTimeout(nextRound, 1500);
+  state.pending = setTimeout(nextRound, 2500);
 }
 
 function showBoardResult() {

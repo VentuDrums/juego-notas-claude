@@ -49,6 +49,7 @@ Vive en su propio repo público, `VentuDrums/juego-notas-claude`, y se publica e
 - El primer equipo que acierta gana la ronda.
 - Si un equipo falla, **queda bloqueado** en esa ronda y el otro puede seguir intentándolo. Así se evita pulsar botones al azar.
 - Si los dos fallan o se agota el tiempo, nadie suma.
+- Entre ronda y ronda hay una pausa de **2,5 segundos** para ver el resultado y comentar la nota.
 - Los dos equipos pueden tocar a la vez sin interferirse (multitáctil).
 - Al final se muestran el ganador y el marcador, con un botón para la revancha.
 
