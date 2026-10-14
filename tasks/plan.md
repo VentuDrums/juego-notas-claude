@@ -44,7 +44,7 @@ i18n.js ───┤   audio.js ──┤
 - [x] Revisión contigo
 
 ### Fase 3: modo pizarra
-- [ ] Tarea 6: Reglas del duelo
+- [x] Tarea 6: Reglas del duelo
 - [ ] Tarea 7: Pantalla dividida para dos equipos
 
 ### Punto de control 3

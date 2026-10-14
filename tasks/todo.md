@@ -65,7 +65,7 @@ Comandos: `node --test` (tests) · `python3 -m http.server 8000` (probar en loca
 
 ## Fase 3: modo pizarra
 
-- [ ] **Tarea 6: Reglas del duelo** (S)
+- [x] **Tarea 6: Reglas del duelo** (S)
   - Qué: `duel.js` gestiona una ronda entre Rojo y Azul (el primero que acierta gana, quien falla queda bloqueado, si fallan los dos o se acaba el tiempo nadie suma) y el marcador de la partida.
   - Aceptación: los casos de la estrategia de tests de `SPEC.md` pasan.
   - Verificar: `node --test`
