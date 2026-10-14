@@ -49,7 +49,7 @@ i18n.js ───┤   audio.js ──┤
 
 ### Punto de control 3
 - [ ] Partida de 10 rondas completa en 16:9 con toques simultáneos (simulados)
-- [x] Revisión contigo
+- [ ] Revisión contigo
 
 ### Fase 4: publicar
 - [ ] Tarea 8: README y GitHub Pages
