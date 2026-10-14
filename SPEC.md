@@ -33,7 +33,7 @@ Vive en su propio repo público, `VentuDrums/juego-notas-claude`, y se publica e
 ### Puntuación
 
 - Acierto: **+10 puntos**, más **+1 por cada segundo** que sobre.
-- Fallo o tiempo agotado: 0 puntos.
+- Fallo o tiempo agotado: 0 puntos. Se ilumina la lámina correcta y la nota se colorea, para aprender la respuesta.
 - **Modo individual:** una partida son **20 notas**. **Todos los niveles están disponibles desde el principio**, sin bloqueos.
 
 ### Sonido
@@ -50,6 +50,7 @@ Vive en su propio repo público, `VentuDrums/juego-notas-claude`, y se publica e
 - Si un equipo falla, **queda bloqueado** en esa ronda y el otro puede seguir intentándolo. Así se evita pulsar botones al azar.
 - Si los dos fallan o se agota el tiempo, nadie suma.
 - Entre ronda y ronda hay una pausa de **2,5 segundos** para ver el resultado y comentar la nota.
+- Al acabar la ronda (nunca antes, para no dar la respuesta al otro equipo) se ilumina la lámina correcta en las dos mitades.
 - Los dos equipos pueden tocar a la vez sin interferirse (multitáctil).
 - Al final se muestran el ganador y el marcador, con un botón para la revancha.
 

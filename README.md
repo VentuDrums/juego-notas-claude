@@ -31,6 +31,8 @@ Hace falta servir la carpeta: abrir `index.html` con doble clic no funciona, por
 
 HTML, CSS y JavaScript sin dependencias ni compilación. La especificación está en [`SPEC.md`](SPEC.md) y el plan de trabajo en [`tasks/`](tasks/).
 
+El diseño visual ("el metalófono del aula") está documentado en [`DESIGN.md`](DESIGN.md), y el producto en [`PRODUCT.md`](PRODUCT.md). La tipografía es Rubik (licencia OFL, `fonts/`).
+
 | Archivo | Qué hace |
 |---|---|
 | `src/notes.js` | Niveles, nombres de notas, frecuencias y posición en el pentagrama |

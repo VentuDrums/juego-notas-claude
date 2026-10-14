@@ -1,0 +1,381 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-14T15:51:53.482899+00:00",
+  "title": "Design System: Juego de notas",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "Aluminio",
+        "tonalRamp": [
+          "#1a2632",
+          "#2e4257",
+          "#415e7b",
+          "#557aa0",
+          "#7a99b8",
+          "#a2b8ce",
+          "#cad6e3",
+          "#eef2f6"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Blanco tarjeta",
+        "tonalRamp": [
+          "#262626",
+          "#424242",
+          "#5e5e5e",
+          "#7a7a7a",
+          "#999999",
+          "#b8b8b8",
+          "#d6d6d6",
+          "#f2f2f2"
+        ]
+      },
+      "ink": {
+        "role": "primary",
+        "displayName": "Tinta marino",
+        "tonalRamp": [
+          "#131f3a",
+          "#213664",
+          "#2f4d8e",
+          "#3c64b8",
+          "#6586cd",
+          "#93aadc",
+          "#c2cfeb",
+          "#ecf0f9"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Tinta suave",
+        "tonalRamp": [
+          "#1b2232",
+          "#2f3b56",
+          "#42557a",
+          "#566e9f",
+          "#7b8eb7",
+          "#a2b0cd",
+          "#cad2e2",
+          "#eef1f6"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Línea",
+        "tonalRamp": [
+          "#1d252f",
+          "#324052",
+          "#485b75",
+          "#5d7698",
+          "#8095b2",
+          "#a6b5c9",
+          "#ccd5e0",
+          "#eff2f5"
+        ]
+      },
+      "ok": {
+        "role": "state",
+        "displayName": "Acierto",
+        "tonalRamp": [
+          "#094330",
+          "#107454",
+          "#17a577",
+          "#1ed79a",
+          "#4ce6b4",
+          "#82edca",
+          "#b7f5e1",
+          "#e9fcf6"
+        ]
+      },
+      "ko": {
+        "role": "state",
+        "displayName": "Fallo",
+        "tonalRamp": [
+          "#400d0d",
+          "#6e1616",
+          "#9d2020",
+          "#cc2929",
+          "#dd5555",
+          "#e78888",
+          "#f1bbbb",
+          "#fbeaea"
+        ]
+      },
+      "team-red": {
+        "role": "team",
+        "displayName": "Equipo rojo",
+        "tonalRamp": [
+          "#400d0d",
+          "#6e1616",
+          "#9d2020",
+          "#cc2929",
+          "#dd5555",
+          "#e78888",
+          "#f1bbbb",
+          "#fbeaea"
+        ]
+      },
+      "team-blue": {
+        "role": "team",
+        "displayName": "Equipo azul",
+        "tonalRamp": [
+          "#091843",
+          "#102a75",
+          "#163ca6",
+          "#1d4ed8",
+          "#4b74e7",
+          "#819eee",
+          "#b7c7f5",
+          "#e9eefc"
+        ]
+      },
+      "note-c": {
+        "role": "note",
+        "displayName": "Do",
+        "tonalRamp": [
+          "#430c09",
+          "#751410",
+          "#a61c17",
+          "#d7251e",
+          "#e6524c",
+          "#ee8682",
+          "#f5bab7",
+          "#fce9e9"
+        ]
+      },
+      "note-d": {
+        "role": "note",
+        "displayName": "Re",
+        "tonalRamp": [
+          "#482804",
+          "#7d4507",
+          "#b3630a",
+          "#e8800d",
+          "#f49e3e",
+          "#f7bb78",
+          "#fbd8b2",
+          "#fef3e7"
+        ]
+      },
+      "note-e": {
+        "role": "note",
+        "displayName": "Mi",
+        "tonalRamp": [
+          "#4a3c03",
+          "#806705",
+          "#b69307",
+          "#ecbf09",
+          "#f8d23a",
+          "#fadf75",
+          "#fcedb0",
+          "#fef9e6"
+        ]
+      },
+      "note-f": {
+        "role": "note",
+        "displayName": "Fa",
+        "tonalRamp": [
+          "#293b12",
+          "#47661e",
+          "#66922b",
+          "#84bd38",
+          "#a1d062",
+          "#bdde91",
+          "#d9ecc0",
+          "#f3f9eb"
+        ]
+      },
+      "note-g": {
+        "role": "note",
+        "displayName": "Sol",
+        "tonalRamp": [
+          "#094439",
+          "#0f7562",
+          "#16a78b",
+          "#1cd9b5",
+          "#4ae8ca",
+          "#80efda",
+          "#b7f6ea",
+          "#e8fcf8"
+        ]
+      },
+      "note-a": {
+        "role": "note",
+        "displayName": "La",
+        "tonalRamp": [
+          "#1d133a",
+          "#322164",
+          "#472f8e",
+          "#5c3cb8",
+          "#8065cd",
+          "#a693dc",
+          "#ccc2eb",
+          "#efecf9"
+        ]
+      },
+      "note-b": {
+        "role": "note",
+        "displayName": "Si",
+        "tonalRamp": [
+          "#400d24",
+          "#6e163f",
+          "#9d2059",
+          "#cc2974",
+          "#dd5594",
+          "#e788b4",
+          "#f1bbd4",
+          "#fbeaf2"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "title": {
+        "displayName": "Título",
+        "purpose": "Nombre del juego en la cabecera, con el logotipo de láminas."
+      },
+      "heading": {
+        "displayName": "Encabezado",
+        "purpose": "Título de cada pantalla."
+      },
+      "score": {
+        "displayName": "Marcador",
+        "purpose": "Puntos del resultado y marcador de equipos, cifras tabulares."
+      },
+      "label": {
+        "displayName": "Etiqueta",
+        "purpose": "Texto de botones y láminas."
+      },
+      "body": {
+        "displayName": "Secundario",
+        "purpose": "Récords y textos de apoyo en ink-soft."
+      },
+      "team": {
+        "displayName": "Equipo",
+        "purpose": "Nombre de cada equipo en la pizarra."
+      },
+      "team-score": {
+        "displayName": "Marcador de equipo",
+        "purpose": "Puntos de cada equipo y nombre del ganador."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card",
+        "value": "0 3px 8px rgb(20 33 61 / 0.16)",
+        "purpose": "Tarjetas y botones."
+      },
+      {
+        "name": "bar",
+        "value": "0 4px 8px rgb(20 33 61 / 0.22), inset 0 -4px 0 rgb(0 0 0 / 0.14)",
+        "purpose": "Lámina en reposo: sombra suave más el grosor de la lámina."
+      },
+      {
+        "name": "bar-struck",
+        "value": "0 1px 2px rgb(20 33 61 / 0.25), inset 0 -2px 0 rgb(0 0 0 / 0.14)",
+        "purpose": "Lámina golpeada."
+      }
+    ],
+    "motion": [
+      {
+        "name": "strike",
+        "value": "transform 80ms ease-out",
+        "purpose": "La lámina baja 4px al golpearla."
+      },
+      {
+        "name": "note-fill",
+        "value": "fill 180ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "La nota acertada se rellena del color de su lámina."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "portrait",
+        "value": "orientation: portrait",
+        "purpose": "Pizarra: las mitades se apilan."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Lámina de respuesta",
+      "kind": "custom",
+      "refersTo": "answer-bar-c",
+      "description": "Las siete láminas de respuesta, de Do a Si, con largo decreciente y dos clavijas.",
+      "html": "<div class=\"ds-bars\"><button class=\"ds-bar\" style=\"--bg:#e2342d;--on:#fff;--len:1\">Do</button><button class=\"ds-bar\" style=\"--bg:#f28c1b;--on:#14213d;--len:0.94\">Re</button><button class=\"ds-bar\" style=\"--bg:#f7ce2a;--on:#14213d;--len:0.88\">Mi</button><button class=\"ds-bar\" style=\"--bg:#8cc63f;--on:#14213d;--len:0.82\">Fa</button><button class=\"ds-bar\" style=\"--bg:#15a388;--on:#14213d;--len:0.76\">Sol</button><button class=\"ds-bar\" style=\"--bg:#6a4bc4;--on:#fff;--len:0.7\">La</button><button class=\"ds-bar\" style=\"--bg:#d6337e;--on:#fff;--len:0.64\">Si</button></div>",
+      "css": ".ds-bars { display: grid; grid-template-columns: repeat(7, 1fr); align-items: end; gap: 6px; width: 340px; } .ds-bar { position: relative; height: calc(150px * var(--len)); display: flex; align-items: center; justify-content: center; font: 800 1.15rem Rubik, system-ui, sans-serif; color: var(--on); background: var(--bg); border: none; border-radius: 10px; box-shadow: 0 4px 8px rgb(20 33 61 / 0.22), inset 0 -4px 0 rgb(0 0 0 / 0.14); transition: transform 80ms ease-out, box-shadow 80ms ease-out; cursor: pointer; } .ds-bar::before, .ds-bar::after { content: ''; position: absolute; left: 50%; width: 8px; height: 8px; margin-left: -4px; border-radius: 50%; background: rgb(20 33 61 / 0.35); top: 9px; } .ds-bar::after { top: auto; bottom: 11px; } .ds-bar:active { transform: translateY(4px); box-shadow: 0 1px 2px rgb(20 33 61 / 0.25), inset 0 -2px 0 rgb(0 0 0 / 0.14); } .ds-bar:focus-visible { outline: 3px solid #14213d; outline-offset: 3px; }"
+    },
+    {
+      "name": "Botón principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal de cada pantalla.",
+      "html": "<button class=\"ds-btn-primary\">Individual</button>",
+      "css": ".ds-btn-primary { min-height: 60px; padding: 10px 16px; font: 700 1.2rem Rubik, system-ui, sans-serif; color: #fff; background: #14213d; border: 2px solid #14213d; border-radius: 14px; box-shadow: 0 3px 8px rgb(20 33 61 / 0.16); cursor: pointer; } .ds-btn-primary:active { transform: translateY(2px); box-shadow: none; } .ds-btn-primary:focus-visible { outline: 3px solid #14213d; outline-offset: 3px; }"
+    },
+    {
+      "name": "Botón secundario",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Acciones secundarias (volver, cambiar nivel).",
+      "html": "<button class=\"ds-btn-secondary\">Volver</button>",
+      "css": ".ds-btn-secondary { min-height: 60px; padding: 10px 16px; font: 700 1.2rem Rubik, system-ui, sans-serif; color: #14213d; background: #fff; border: 2px solid #c9d2de; border-radius: 14px; box-shadow: 0 3px 8px rgb(20 33 61 / 0.16); cursor: pointer; } .ds-btn-secondary:active { transform: translateY(2px); box-shadow: none; } .ds-btn-secondary:focus-visible { outline: 3px solid #14213d; outline-offset: 3px; }"
+    },
+    {
+      "name": "Selector",
+      "kind": "chip",
+      "refersTo": "toggle-selected",
+      "description": "Idioma, nivel y rondas; el seleccionado se invierte.",
+      "html": "<div class=\"ds-toggles\"><button class=\"ds-toggle\" aria-pressed=\"true\">Español</button><button class=\"ds-toggle\" aria-pressed=\"false\">English</button></div>",
+      "css": ".ds-toggles { display: flex; gap: 8px; } .ds-toggle { min-height: 52px; padding: 8px 18px; font: 600 1rem Rubik, system-ui, sans-serif; color: #14213d; background: #fff; border: 2px solid #c9d2de; border-radius: 12px; cursor: pointer; } .ds-toggle[aria-pressed='true'] { background: #14213d; color: #fff; border-color: #14213d; } .ds-toggle:focus-visible { outline: 3px solid #14213d; outline-offset: 3px; }"
+    },
+    {
+      "name": "Barra de tiempo",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Pista de tiempo; pasa a rojo por debajo del 30 %.",
+      "html": "<div class=\"ds-timer\"><div style=\"width:62%\"></div></div><div class=\"ds-timer\"><div class=\"low\" style=\"width:22%\"></div></div>",
+      "css": ".ds-timer { width: 300px; height: 12px; margin: 6px 0; background: #c9d2de; border-radius: 6px; overflow: hidden; } .ds-timer > div { height: 100%; background: #14213d; border-radius: 6px; } .ds-timer > div.low { background: #c62828; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "El metalófono del aula",
+    "overview": "El juego toma su mundo del instrumental Orff que hay en cualquier aula de Música: xilófonos, metalófonos y boomwhackers, donde cada nota tiene su color. Ese mundo aporta cuatro cosas y solo esas: la paleta, la tipografía redonda y gruesa, una densidad generosa pensada para tocar con el dedo, y un gesto propio. Los botones de respuesta son láminas que se golpean, y al acertar la nota del pentagrama se tiñe del color de su lámina.\n\nTodo lo demás es una interfaz de juego corriente: botones, barra de tiempo, marcador. Se proyecta en aulas con luz y se juega en móviles, así que el fondo es claro y frío y la tinta es casi negra, con contraste alto en todo.",
+    "keyCharacteristics": [
+      "Siete colores de nota, siempre ligados a su nota y nunca usados como decoración suelta.",
+      "Láminas de respuesta de largo decreciente, de Do a Si, con dos clavijas.",
+      "Fondo de aluminio claro y frío, tinta azul marino, tarjetas blancas.",
+      "Rubik redonda y gruesa, autoalojada, con cifras tabulares."
+    ],
+    "rules": [
+      {
+        "name": "The One Note, One Colour Rule",
+        "body": "Un color de nota solo aparece donde está esa nota: su lámina, sus puntos en la tarjeta de nivel, la cabeza de la nota acertada y la franja de firma. Nunca como acento genérico.",
+        "section": "colors"
+      },
+      {
+        "name": "The Cold Ground Rule",
+        "body": "El fondo es aluminio frío. Un fondo crema o cálido rompe el mundo y baja el contraste proyectado.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tabular Score Rule",
+        "body": "Toda cifra que cambia (puntos, nota n/20, ronda, marcador) usa cifras tabulares para no bailar.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Do ligar cada color de nota a su nota y a nada más.",
+      "Do mantener el contraste alto pensando en un proyector en un aula con luz.",
+      "Do usar iconos SVG dibujados en el mismo trazo (2.2 px, redondeado).",
+      "Do respetar `prefers-reduced-motion`: sin transiciones."
+    ],
+    "donts": [
+      "Don't usar un fondo crema o cálido.",
+      "Don't usar los colores de nota como decoración o como colores de estado.",
+      "Don't usar emojis o glifos como iconos.",
+      "Don't añadir sombras duras desplazadas, texto con degradado o etiquetas encima de los encabezados.",
+      "Don't usar la tipografía del sistema como voz principal: es Rubik."
+    ]
+  }
+}

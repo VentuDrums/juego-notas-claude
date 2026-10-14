@@ -1,184 +1,283 @@
+@font-face {
+  font-family: 'Rubik';
+  src: url('fonts/rubik.woff2') format('woff2');
+  font-weight: 300 900;
+  font-display: swap;
+}
+
 :root {
-  --bg: #fdfaf3;
-  --ink: #1d1b16;
-  --button: #ffffff;
-  --border: #c9c2b2;
-  --ok: #1d7a3a;
-  --ko: #b3261e;
-  font-family: system-ui, sans-serif;
+  /* Classroom aluminium and navy ink: light, because it is projected in a lit room. */
+  --ground: #eef2f6;
+  --surface: #ffffff;
+  --ink: #14213d;
+  --ink-soft: #3a4a6b;
+  --line: #c9d2de;
+  --ok: #12805c;
+  --ko: #c62828;
+  --red: #c62828;
+  --blue: #1d4ed8;
+
+  /* One colour per note, as on the classroom bars (boomwhacker code). */
+  --note-C: #e2342d;
+  --note-D: #f28c1b;
+  --note-E: #f7ce2a;
+  --note-F: #8cc63f;
+  --note-G: #15a388;
+  --note-A: #6a4bc4;
+  --note-B: #d6337e;
+
+  --shadow: 0 3px 8px rgb(20 33 61 / 0.16);
+  --radius: 14px;
+
+  font-family: 'Rubik', system-ui, sans-serif;
   color: var(--ink);
-  background: var(--bg);
+  background: var(--ground);
+  font-variant-numeric: tabular-nums;
 }
 
 * { box-sizing: border-box; }
 
+::selection { background: var(--note-E); color: var(--ink); }
+
 body { margin: 0; }
+
+/* The seven bar colours as the page's signature strip. */
+body::before {
+  content: '';
+  display: block;
+  height: 8px;
+  background: linear-gradient(90deg,
+    var(--note-C) 0 14.28%, var(--note-D) 0 28.57%, var(--note-E) 0 42.85%, var(--note-F) 0 57.14%,
+    var(--note-G) 0 71.42%, var(--note-A) 0 85.71%, var(--note-B) 0);
+}
 
 main {
   max-width: 640px;
   margin: 0 auto;
   padding: 16px;
-  min-height: 100dvh;
+  min-height: calc(100dvh - 8px);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
-header { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+body.wide main { max-width: none; }
 
-h1 { margin: 0; font-size: 1.5rem; }
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+[data-letter='C'], [data-hit='C'] { --bar: var(--note-C); --on-bar: #fff; --len: 1; }
+[data-letter='D'], [data-hit='D'] { --bar: var(--note-D); --on-bar: var(--ink); --len: 0.94; }
+[data-letter='E'], [data-hit='E'] { --bar: var(--note-E); --on-bar: var(--ink); --len: 0.88; }
+[data-letter='F'], [data-hit='F'] { --bar: var(--note-F); --on-bar: var(--ink); --len: 0.82; }
+[data-letter='G'], [data-hit='G'] { --bar: var(--note-G); --on-bar: var(--ink); --len: 0.76; }
+[data-letter='A'], [data-hit='A'] { --bar: var(--note-A); --on-bar: #fff; --len: 0.7; }
+[data-letter='B'], [data-hit='B'] { --bar: var(--note-B); --on-bar: #fff; --len: 0.64; }
+
+/* Header */
+
+header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+
+h1 { margin: 0; display: flex; align-items: center; gap: 10px; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.01em; }
+h1 .mark { width: 28px; height: 24px; flex: none; }
 
 button.icon {
-  min-width: 48px;
-  min-height: 48px;
-  font-size: 1.4rem;
-  background: none;
-  border: 2px solid var(--border);
-  border-radius: 10px;
-}
-
-#staff svg { width: 100%; height: auto; display: block; }
-
-#feedback { margin: 0; min-height: 1.5em; text-align: center; font-size: 1.4rem; font-weight: 700; }
-
-
-
-#answers {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 6px;
-}
-
-#answers button {
-  min-height: 56px;
-  font: inherit;
-  font-size: 1.1rem;
-  font-weight: 600;
+  place-items: center;
+  width: 48px;
+  height: 48px;
   color: var(--ink);
-  background: var(--button);
-  border: 2px solid var(--border);
-  border-radius: 10px;
-  touch-action: manipulation;
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: 12px;
 }
+button.icon svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }
+button.icon[aria-pressed='true'] { color: var(--ko); }
 
-#answers button:active { background: var(--border); }
-#answers button:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+/* Screens */
 
-section { display: flex; flex-direction: column; gap: 12px; }
+section { display: flex; flex-direction: column; gap: 14px; }
 section[hidden] { display: none; }
 
-h2 { margin: 0; text-align: center; }
+/* In a solo game the bars sit at the bottom, under the thumb. */
+#play { flex: 1; }
+#answers { margin-top: auto; }
 
-.bar { display: flex; justify-content: space-between; font-weight: 600; font-size: 1.1rem; }
-
-.timer { height: 10px; background: var(--border); border-radius: 5px; overflow: hidden; }
-#time { height: 100%; width: 100%; background: var(--ink); }
-
-.ok { color: var(--ok); }
-.ko { color: var(--ko); }
-
-#result p { margin: 0; text-align: center; font-size: 1.3rem; }
-#result .big { font-size: 2.4rem; font-weight: 800; }
-#new-record { font-weight: 700; }
+h2 { margin: 8px 0 0; text-align: center; font-size: 1.6rem; font-weight: 800; letter-spacing: -0.01em; text-wrap: balance; }
+h3 { margin: 6px 0 0; text-align: center; font-size: 1rem; font-weight: 600; color: var(--ink-soft); }
 
 .actions { display: flex; flex-direction: column; gap: 10px; }
 
 .actions button {
-  min-height: 56px;
-  font: inherit;
+  min-height: 60px;
+  padding: 10px 16px;
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--ink);
-  background: var(--button);
-  border: 2px solid var(--border);
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.actions button.primary { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+.actions button:active { transform: translateY(2px); box-shadow: none; }
+
+/* Language and setup choices */
+
+.langs, .choice { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+
+.langs button, .choice button {
+  min-height: 52px;
+  padding: 8px 18px;
+  font-weight: 600;
+  background: var(--surface);
+  border: 2px solid var(--line);
   border-radius: 12px;
 }
-
-.actions button.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-
-#levels button { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px; }
-#levels small { font-size: 0.95rem; font-weight: 500; }
-
-.actions button:disabled { opacity: 0.45; }
-
-.langs { display: flex; justify-content: center; gap: 8px; }
-.langs button {
-  min-height: 48px;
-  padding: 0 16px;
-  font: inherit;
-  font-weight: 600;
-  color: var(--ink);
-  background: var(--button);
-  border: 2px solid var(--border);
-  border-radius: 10px;
+.langs button[aria-pressed='true'], .choice button[aria-pressed='true'] {
+  background: var(--ink);
+  color: var(--surface);
+  border-color: var(--ink);
 }
-.langs button[aria-pressed='true'] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.choice button { display: flex; flex-direction: column; align-items: center; gap: 6px; }
 
-.bar { align-items: center; gap: 8px; }
+/* Levels: each one shows which notes it uses, in their bar colours. */
+
+#levels button { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+#levels small { font-size: 1rem; font-weight: 500; color: var(--ink-soft); }
+
+.dots { display: flex; gap: 5px; }
+.dots i { width: 12px; height: 12px; border-radius: 50%; background: var(--bar); box-shadow: inset 0 0 0 1.5px rgb(20 33 61 / 0.25); }
+
+/* Game bar and timer */
+
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 1.2rem; font-weight: 700; }
+
 button.exit {
   min-height: 44px;
   padding: 0 14px;
-  font: inherit;
   font-weight: 600;
-  color: var(--ink);
-  background: var(--button);
-  border: 2px solid var(--border);
-  border-radius: 10px;
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: 12px;
 }
 
-:root { --red: #c62828; --blue: #1565c0; }
+.timer { height: 12px; background: var(--line); border-radius: 6px; overflow: hidden; }
+.timer > div { height: 100%; width: 100%; background: var(--ink); border-radius: 6px; }
+.timer > div.low { background: var(--ko); }
 
-body.wide main { max-width: none; }
+/* Staff: the note head fills with the colour of the bar that hit it. */
 
-h3 { margin: 4px 0 0; text-align: center; font-size: 1.1rem; }
-
-.choice { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-.choice button {
-  min-height: 52px;
-  padding: 0 16px;
-  font: inherit;
-  font-weight: 600;
+#staff, .team-staff {
   color: var(--ink);
-  background: var(--button);
-  border: 2px solid var(--border);
-  border-radius: 10px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 4px 0;
 }
-.choice button[aria-pressed='true'] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+#staff svg, .team-staff svg { display: block; width: 100%; height: auto; }
+.note-head { fill: transparent; transition: fill 180ms cubic-bezier(0.16, 1, 0.3, 1); }
+[data-hit] .note-head { fill: var(--bar); }
 
-.teams { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+#feedback, .team-feedback { margin: 0; min-height: 1.4em; text-align: center; font-size: 1.5rem; font-weight: 800; }
+.ok { color: var(--ok); }
+.ko { color: var(--ko); }
+
+/* Answer buttons are the classroom bars: graded lengths, two pins, struck from above. */
+
+#answers, .team-answers {
+  --bar-max: clamp(96px, 24vh, 190px);
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: end;
+  gap: 6px;
+}
+
+#answers button, .team-answers button {
+  position: relative;
+  height: calc(var(--bar-max) * var(--len));
+  min-height: 60px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--on-bar);
+  background: var(--bar);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgb(20 33 61 / 0.22), inset 0 -4px 0 rgb(0 0 0 / 0.14);
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: transform 80ms ease-out, box-shadow 80ms ease-out;
+}
+
+/* The two pins that hold a bar on its frame. */
+#answers button::before, .team-answers button::before,
+#answers button::after, .team-answers button::after {
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  border-radius: 50%;
+  background: rgb(20 33 61 / 0.35);
+}
+#answers button::after, .team-answers button::after { top: auto; bottom: 11px; }
+
+#answers button:active, .team-answers button:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 2px rgb(20 33 61 / 0.25), inset 0 -2px 0 rgb(0 0 0 / 0.14);
+}
+
+/* Result */
+
+#result p { margin: 0; text-align: center; font-size: 1.2rem; }
+#result .big, #board-result .big { margin: 0; text-align: center; font-size: 2.6rem; font-weight: 800; letter-spacing: -0.02em; }
+#new-record { font-weight: 800; }
+
+/* Board mode */
+
+.teams { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 @media (orientation: portrait) { .teams { grid-template-columns: 1fr; } }
 
-.team { display: flex; flex-direction: column; gap: 8px; padding: 12px; border: 4px solid; border-radius: 16px; }
+.team { display: flex; flex-direction: column; gap: 10px; padding: 14px; border: 6px solid; border-radius: 20px; background: var(--ground); }
 .team[data-team='red'] { border-color: var(--red); }
 .team[data-team='blue'] { border-color: var(--blue); }
 
-.team-head { display: flex; justify-content: space-between; font-size: 1.6rem; font-weight: 800; }
+.team-head { display: flex; justify-content: space-between; align-items: baseline; font-size: 1.8rem; font-weight: 800; }
 .team[data-team='red'] .team-head { color: var(--red); }
 .team[data-team='blue'] .team-head { color: var(--blue); }
+.team-score { font-size: 2.4rem; }
 
-.team-staff svg { display: block; width: 100%; height: auto; max-height: 44vh; }
+.team-staff svg { max-height: 32vh; }
 
-.team-feedback { margin: 0; min-height: 1.4em; text-align: center; font-size: 1.8rem; font-weight: 800; }
+.team-answers { --bar-max: clamp(72px, 16vh, 190px); gap: 10px; }
+.team-answers button { font-size: clamp(1.2rem, 3vh, 2.4rem); touch-action: none; }
 
-.team-answers { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
-.team-answers button {
-  min-height: clamp(64px, 11vh, 120px);
-  font: inherit;
-  font-size: clamp(1.4rem, 3vh, 2.2rem);
-  font-weight: 700;
-  color: var(--ink);
-  background: var(--button);
-  border: 2px solid var(--border);
-  border-radius: 12px;
-  touch-action: none;
-  user-select: none;
-  -webkit-user-select: none;
+.team.blocked .team-answers button { filter: grayscale(1); opacity: 0.4; }
+
+/* The right bar after a miss: full colour, ink outline and a short ring. */
+#answers button.reveal, .team-answers button.reveal, .team.blocked .team-answers button.reveal {
+  filter: none;
+  opacity: 1;
+  outline: 4px solid var(--ink);
+  outline-offset: 3px;
+  animation: ring 500ms cubic-bezier(0.16, 1, 0.3, 1) 2;
 }
-.team.blocked .team-answers button { opacity: 0.3; }
+@keyframes ring {
+  50% { transform: translateY(-6px); }
+}
 
-#board-winner { font-size: 2.2rem; }
+body.wide .bar { font-size: 1.6rem; }
+
+#board-winner { font-size: 2.4rem; }
 #board-winner.red { color: var(--red); }
 #board-winner.blue { color: var(--blue); }
-#board-result .big { text-align: center; font-size: 2rem; font-weight: 800; margin: 0; }
 
-body.wide .bar { font-size: 1.5rem; }
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
