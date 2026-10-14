@@ -24,7 +24,18 @@ main {
   gap: 12px;
 }
 
-h1 { margin: 0; text-align: center; font-size: 1.5rem; }
+header { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+
+h1 { margin: 0; font-size: 1.5rem; }
+
+button.icon {
+  min-width: 48px;
+  min-height: 48px;
+  font-size: 1.4rem;
+  background: none;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+}
 
 #staff svg { width: 100%; height: auto; display: block; }
 

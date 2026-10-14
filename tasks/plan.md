@@ -32,10 +32,10 @@ i18n.js ───┤   audio.js ──┤
 ### Punto de control 1
 - [x] Los tests pasan
 - [x] Se ve una nota, se pulsa un botón y dice si es correcto
-- [ ] Revisión contigo (captura en móvil)
+- [x] Revisión contigo (captura en móvil)
 
 ### Fase 2: modo individual completo
-- [ ] Tarea 3: Sonido
+- [x] Tarea 3: Sonido
 - [ ] Tarea 4: Partida de 20 notas con puntos y tiempo
 - [ ] Tarea 5: Inicio, niveles, récords e idioma
 

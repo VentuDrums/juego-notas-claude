@@ -30,7 +30,7 @@ Comandos: `node --test` (tests) · `python3 -m http.server 8000` (probar en loca
 
 ## Fase 2: modo individual completo
 
-- [ ] **Tarea 3: Sonido** (S)
+- [x] **Tarea 3: Sonido** (S)
   - Qué: `audio.js` hace sonar la nota al aparecer, con sonido distinto para acierto y para fallo, y añade el botón de silencio. El audio se activa al primer toque.
   - Aceptación:
     - Suenan las tres cosas.
