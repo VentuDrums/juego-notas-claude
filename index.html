@@ -10,12 +10,30 @@
 <body>
   <main>
     <header>
-      <h1 id="title"></h1>
+      <h1 data-i18n="title"></h1>
       <button type="button" id="mute" class="icon"></button>
     </header>
-    <div id="staff"></div>
-    <p id="feedback" aria-live="polite"></p>
-    <div id="answers"></div>
+
+    <section id="play" data-screen hidden>
+      <div class="bar">
+        <span id="progress"></span>
+        <span id="score"></span>
+      </div>
+      <div class="timer"><div id="time"></div></div>
+      <div id="staff"></div>
+      <p id="feedback" aria-live="polite"></p>
+      <div id="answers"></div>
+    </section>
+
+    <section id="result" data-screen hidden>
+      <h2 data-i18n="result"></h2>
+      <p id="new-record" class="ok" data-i18n="newRecord"></p>
+      <p id="final-score" class="big"></p>
+      <p id="final-hits"></p>
+      <div class="actions">
+        <button type="button" id="again" class="primary" data-i18n="playAgain"></button>
+      </div>
+    </section>
   </main>
 </body>
 </html>

@@ -40,7 +40,7 @@ Comandos: `node --test` (tests) · `python3 -m http.server 8000` (probar en loca
   - Archivos: `src/audio.js`, `src/app.js`, `index.html`
   - Depende de: 2
 
-- [ ] **Tarea 4: Partida de 20 notas con puntos y tiempo** (M)
+- [x] **Tarea 4: Partida de 20 notas con puntos y tiempo** (M)
   - Qué: `scoring.js` calcula 10 puntos más 1 por segundo sobrante y cuenta los aciertos. Hay temporizador por nivel; al agotarse cuenta como fallo. Al final, pantalla de resultado.
   - Aceptación:
     - La puntuación es correcta con y sin tiempo sobrante.
