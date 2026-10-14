@@ -249,6 +249,14 @@
       "body": {
         "displayName": "Secundario",
         "purpose": "Récords y textos de apoyo en ink-soft."
+      },
+      "team": {
+        "displayName": "Equipo",
+        "purpose": "Nombre de cada equipo en la pizarra."
+      },
+      "team-score": {
+        "displayName": "Marcador de equipo",
+        "purpose": "Puntos de cada equipo y nombre del ganador."
       }
     },
     "shadows": [

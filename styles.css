@@ -104,7 +104,7 @@ section[hidden] { display: none; }
 #answers { margin-top: auto; }
 
 h2 { margin: 8px 0 0; text-align: center; font-size: 1.6rem; font-weight: 800; letter-spacing: -0.01em; text-wrap: balance; }
-h3 { margin: 6px 0 0; text-align: center; font-size: 1.05rem; font-weight: 600; color: var(--ink-soft); }
+h3 { margin: 6px 0 0; text-align: center; font-size: 1rem; font-weight: 600; color: var(--ink-soft); }
 
 .actions { display: flex; flex-direction: column; gap: 10px; }
 
@@ -150,7 +150,7 @@ h3 { margin: 6px 0 0; text-align: center; font-size: 1.05rem; font-weight: 600; 
 
 /* Game bar and timer */
 
-.bar { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 1.1rem; font-weight: 700; }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 1.2rem; font-weight: 700; }
 
 button.exit {
   min-height: 44px;
@@ -200,7 +200,7 @@ button.exit {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 800;
   color: var(--on-bar);
   background: var(--bar);
@@ -235,7 +235,7 @@ button.exit {
 
 /* Result */
 
-#result p { margin: 0; text-align: center; font-size: 1.3rem; }
+#result p { margin: 0; text-align: center; font-size: 1.2rem; }
 #result .big, #board-result .big { margin: 0; text-align: center; font-size: 2.6rem; font-weight: 800; letter-spacing: -0.02em; }
 #new-record { font-weight: 800; }
 
@@ -256,7 +256,7 @@ button.exit {
 .team-staff svg { max-height: 32vh; }
 
 .team-answers { --bar-max: clamp(72px, 16vh, 190px); gap: 10px; }
-.team-answers button { font-size: clamp(1.3rem, 3vh, 2.1rem); touch-action: none; }
+.team-answers button { font-size: clamp(1.2rem, 3vh, 2.4rem); touch-action: none; }
 
 .team.blocked .team-answers button { filter: grayscale(1); opacity: 0.4; }
 

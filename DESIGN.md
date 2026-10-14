@@ -37,6 +37,16 @@ typography:
     fontWeight: 800
     lineHeight: 1.1
     letterSpacing: "-0.02em"
+  team:
+    fontFamily: "Rubik, system-ui, sans-serif"
+    fontSize: "1.8rem"
+    fontWeight: 800
+    lineHeight: 1.2
+  team-score:
+    fontFamily: "Rubik, system-ui, sans-serif"
+    fontSize: "2.4rem"
+    fontWeight: 800
+    lineHeight: 1.1
   label:
     fontFamily: "Rubik, system-ui, sans-serif"
     fontSize: "1.2rem"
@@ -48,6 +58,7 @@ typography:
     fontWeight: 500
     lineHeight: 1.4
 rounded:
+  track: "6px"
   bar: "10px"
   control: "12px"
   card: "14px"
@@ -138,8 +149,9 @@ Rubik variable (300–900), autoalojada en `fonts/rubik.woff2` con licencia OFL.
 ### Hierarchy
 - **Título** 1.5rem/800, con el logotipo de siete láminas.
 - **Encabezado de pantalla** 1.6rem/800, centrado.
-- **Marcador** 2.6rem/800 (resultado) y 2.4rem (equipos), con cifras tabulares.
-- **Etiqueta** 1.2rem/700 en botones; láminas de 1.15rem en el móvil a 2.1rem en la pizarra.
+- **Marcador** 2.6rem/800 (resultado) y 2.4rem (`team-score`: equipos y ganador), con cifras tabulares.
+- **Equipo** 1.8rem/800 para el nombre de cada equipo.
+- **Etiqueta** 1.2rem/700 en botones, barra de partida y láminas; en la pizarra las láminas escalan de 1.2rem a 2.4rem.
 - **Secundario** 1rem/500 en `ink-soft`.
 
 ### Named Rules
@@ -160,7 +172,7 @@ Sombras suaves con desplazamiento y desenfoque, nunca bloques duros.
 
 ## Shapes
 
-Esquinas redondeadas moderadas: lámina 10 px, controles 12 px, tarjetas 14 px, marco de equipo 20 px con borde de 6 px. Las clavijas son círculos de 8 px.
+Esquinas redondeadas moderadas: barra de tiempo 6 px, lámina 10 px, controles 12 px, tarjetas 14 px, marco de equipo 20 px con borde de 6 px. Las clavijas son círculos de 8 px.
 
 ## Components
 
