@@ -86,7 +86,7 @@ Comandos: `node --test` (tests) · `python3 -m http.server 8000` (probar en loca
 
 ## Fase 4: publicar
 
-- [ ] **Tarea 8: README y GitHub Pages** (S)
+- [x] **Tarea 8: README y GitHub Pages** (S)
   - Qué: README breve (qué es, cómo jugar, cómo probar en local). Publicar en GitHub Pages desde `main`, previa confirmación tuya.
   - Aceptación: el enlace público abre el juego en el móvil.
   - Verificar: abrir el enlace; la lista final de comprobación la haces tú en el móvil y en la pizarra.
