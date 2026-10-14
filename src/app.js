@@ -8,7 +8,7 @@ import { load, save } from './storage.js';
 const $ = (id) => document.getElementById(id);
 
 const saved = load();
-const state = { ...saved, level: 1, note: null, game: null, deadline: 0, timer: null, locked: true };
+const state = { ...saved, level: 1, note: null, game: null, deadline: 0, timer: null, pending: null, locked: true };
 setMuted(state.muted);
 
 function show(screen) {
@@ -65,31 +65,40 @@ function nextNote() {
   $('progress').textContent = `${t(state.lang, 'note')} ${state.game.count + 1} / ${QUESTIONS}`;
   $('score').textContent = `${t(state.lang, 'points')}: ${state.game.score}`;
   playNote(frequency(state.note));
-  state.deadline = performance.now() + LEVELS[state.level].seconds * 1000;
   state.locked = false;
-  state.timer = setInterval(tick, 100);
-  tick();
+  startTimer($('time'), () => resolve(false, 0, 'timeUp'));
 }
 
 function secondsLeft() {
   return Math.max(0, state.deadline - performance.now()) / 1000;
 }
 
-function tick() {
-  const left = secondsLeft();
-  $('time').style.width = `${(left / LEVELS[state.level].seconds) * 100}%`;
-  if (left === 0) resolve(false, 0, 'timeUp');
+function startTimer(bar, onTimeout) {
+  const seconds = LEVELS[state.level].seconds;
+  state.deadline = performance.now() + seconds * 1000;
+  const tick = () => {
+    const left = secondsLeft();
+    bar.style.width = `${(left / seconds) * 100}%`;
+    if (left === 0) onTimeout();
+  };
+  state.timer = setInterval(tick, 100);
+  tick();
+}
+
+function stopGame() {
+  state.locked = true;
+  clearInterval(state.timer);
+  clearTimeout(state.pending);
 }
 
 function resolve(ok, left, message) {
-  state.locked = true;
-  clearInterval(state.timer);
+  stopGame();
   state.game = answer(state.game, ok, left);
   (ok ? playCorrect : playWrong)();
   $('feedback').textContent = t(state.lang, message);
   $('feedback').className = ok ? 'ok' : 'ko';
   $('score').textContent = `${t(state.lang, 'points')}: ${state.game.score}`;
-  setTimeout(nextNote, 900);
+  state.pending = setTimeout(nextNote, 900);
 }
 
 function showResult() {
@@ -139,6 +148,7 @@ $('levels').addEventListener('click', (event) => {
 
 document.querySelectorAll('[data-go]').forEach((el) =>
   el.addEventListener('click', () => {
+    stopGame();
     renderLevels();
     show(el.dataset.go);
   }),

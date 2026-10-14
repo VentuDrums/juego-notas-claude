@@ -25,6 +25,7 @@ export const TEXTS = {
     back: 'Volver',
     changeLevel: 'Cambiar nivel',
     home: 'Inicio',
+    exit: 'Salir',
   },
   en: {
     title: 'Note game',
@@ -52,6 +53,7 @@ export const TEXTS = {
     back: 'Back',
     changeLevel: 'Change level',
     home: 'Home',
+    exit: 'Exit',
   },
 };
 

@@ -40,8 +40,8 @@ i18n.js ───┤   audio.js ──┤
 - [x] Tarea 5: Inicio, niveles, récords e idioma
 
 ### Punto de control 2
-- [ ] Modo individual de principio a fin, en ES y EN
-- [ ] Revisión contigo
+- [x] Modo individual de principio a fin, en ES y EN
+- [x] Revisión contigo
 
 ### Fase 3: modo pizarra
 - [ ] Tarea 6: Reglas del duelo
@@ -49,7 +49,7 @@ i18n.js ───┤   audio.js ──┤
 
 ### Punto de control 3
 - [ ] Partida de 10 rondas completa en 16:9 con toques simultáneos (simulados)
-- [ ] Revisión contigo
+- [x] Revisión contigo
 
 ### Fase 4: publicar
 - [ ] Tarea 8: README y GitHub Pages
