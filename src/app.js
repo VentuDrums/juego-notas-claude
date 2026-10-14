@@ -90,6 +90,7 @@ function nextRound() {
     team.classList.remove('blocked');
     team.querySelector('.team-staff').innerHTML = staffSvg(state.note, t(state.lang, 'readNote'));
     team.querySelector('.team-staff').removeAttribute('data-hit');
+    clearReveal(team.querySelector('.team-answers'));
     team.querySelector('.team-feedback').textContent = '';
   });
   $('round').textContent = `${t(state.lang, 'round')} ${board.match.played + 1} / ${board.match.rounds}`;
@@ -116,6 +117,8 @@ function finishRound(timedOut) {
     teams().forEach((team) => !board.round.blocked[team.dataset.team] && teamFeedback(team, 'timeUp', false));
   }
   board.match = endRound(board.match, board.round);
+  // Only once the round is over, so a miss never gives the other team the answer.
+  teams().forEach((team) => reveal(team.querySelector('.team-answers'), team.querySelector('.team-staff')));
   renderBoardScore();
   state.pending = setTimeout(nextRound, 2500);
 }
@@ -154,6 +157,7 @@ function nextNote() {
   state.note = randomNote(state.level, state.note);
   $('staff').innerHTML = staffSvg(state.note, t(state.lang, 'readNote'));
   $('staff').removeAttribute('data-hit');
+  clearReveal($('answers'));
   $('feedback').textContent = '';
   $('progress').textContent = `${t(state.lang, 'note')} ${state.game.count + 1} / ${QUESTIONS}`;
   $('score').textContent = `${t(state.lang, 'points')}: ${state.game.score}`;
@@ -179,6 +183,16 @@ function startTimer(bar, onTimeout) {
   tick();
 }
 
+// After a miss, light up the right bar and colour the note so the answer is learnt.
+function reveal(answers, staff) {
+  answers.querySelector(`[data-letter="${state.note[0]}"]`).classList.add('reveal');
+  staff.dataset.hit = state.note[0];
+}
+
+function clearReveal(answers) {
+  answers.querySelector('.reveal')?.classList.remove('reveal');
+}
+
 function stopGame() {
   state.locked = true;
   clearInterval(state.timer);
@@ -192,7 +206,8 @@ function resolve(ok, left, message) {
   $('feedback').textContent = t(state.lang, message);
   $('feedback').className = ok ? 'ok' : 'ko';
   $('score').textContent = `${t(state.lang, 'points')}: ${state.game.score}`;
-  state.pending = setTimeout(nextNote, 900);
+  if (!ok) reveal($('answers'), $('staff'));
+  state.pending = setTimeout(nextNote, ok ? 900 : 1500);
 }
 
 function showResult() {

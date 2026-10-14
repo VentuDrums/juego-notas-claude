@@ -177,7 +177,7 @@ Botón ancho con el nombre del nivel, una fila de puntos de color con las notas 
 Tarjeta blanca con la clave de sol y la redonda en SVG, en tinta. La cabeza de la nota se rellena con el color de la lámina acertada (180 ms, ease-out).
 
 ### Lámina de respuesta (componente propio)
-Siete láminas en fila, de Do a Si, con largo decreciente del 100 % al 64 % (`--len`), color de su nota, dos clavijas y el nombre en el centro. Equipo bloqueado: láminas en gris al 40 %.
+Siete láminas en fila, de Do a Si, con largo decreciente del 100 % al 64 % (`--len`), color de su nota, dos clavijas y el nombre en el centro. Equipo bloqueado: láminas en gris al 40 %. Tras un fallo (o al acabar la ronda en la pizarra) la lámina correcta se ilumina: color completo, contorno de 4 px en tinta y un pequeño salto, y la nota se rellena de su color.
 
 ### Barra de tiempo
 Pista `line` de 12 px y relleno en tinta, que pasa a `ko` por debajo del 30 % del tiempo.
