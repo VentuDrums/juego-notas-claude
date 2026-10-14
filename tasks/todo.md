@@ -1,10 +1,10 @@
 # Tareas: juego-notas
 
-Comandos: `node --test tests/` (tests) · `python3 -m http.server 8000` (probar en local).
+Comandos: `node --test` (tests) · `python3 -m http.server 8000` (probar en local).
 
 ## Fase 1: primera porción jugable
 
-- [ ] **Tarea 1: Lógica de notas y textos** (S)
+- [x] **Tarea 1: Lógica de notas y textos** (S)
   - Qué: `notes.js` con los 4 niveles, nombres ES/EN, frecuencias, nota al azar sin repetir la anterior y posición en el pentagrama (incluidas las líneas adicionales). `i18n.js` con la estructura ES/EN y los primeros textos.
   - Aceptación:
     - Las notas de cada nivel coinciden con la tabla de `SPEC.md`.
@@ -12,7 +12,7 @@ Comandos: `node --test tests/` (tests) · `python3 -m http.server 8000` (probar 
     - Do4 y La5–Do6 indican sus líneas adicionales.
     - `randomNote` nunca devuelve la nota anterior.
     - ES y EN tienen las mismas claves.
-  - Verificar: `node --test tests/`
+  - Verificar: `node --test`
   - Archivos: `src/notes.js`, `src/i18n.js`, `tests/notes.test.js`, `tests/i18n.test.js`
   - Depende de: nada
 
@@ -46,7 +46,7 @@ Comandos: `node --test tests/` (tests) · `python3 -m http.server 8000` (probar 
     - La puntuación es correcta con y sin tiempo sobrante.
     - El tiempo agotado cuenta como fallo.
     - Tras 20 notas se ve el resultado.
-  - Verificar: `node --test tests/` + partida completa en el navegador.
+  - Verificar: `node --test` + partida completa en el navegador.
   - Archivos: `src/scoring.js`, `tests/scoring.test.js`, `src/app.js`, `src/i18n.js`, `styles.css`
   - Depende de: 2
 
@@ -68,7 +68,7 @@ Comandos: `node --test tests/` (tests) · `python3 -m http.server 8000` (probar 
 - [ ] **Tarea 6: Reglas del duelo** (S)
   - Qué: `duel.js` gestiona una ronda entre Rojo y Azul (el primero que acierta gana, quien falla queda bloqueado, si fallan los dos o se acaba el tiempo nadie suma) y el marcador de la partida.
   - Aceptación: los casos de la estrategia de tests de `SPEC.md` pasan.
-  - Verificar: `node --test tests/`
+  - Verificar: `node --test`
   - Archivos: `src/duel.js`, `tests/duel.test.js`
   - Depende de: 1
 

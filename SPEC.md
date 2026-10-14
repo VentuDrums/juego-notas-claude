@@ -77,7 +77,7 @@ Vive en su propio repo público, `VentuDrums/juego-notas-claude`, y se publica e
 
 ```bash
 # Tests
-node --test tests/
+node --test
 
 # Probar en local: servir la carpeta y abrir http://localhost:8000
 python3 -m http.server 8000
@@ -157,7 +157,7 @@ export function randomNote(level, previous, random = Math.random) {
 ## Límites
 
 - **Siempre:**
-  - Ejecutar `node --test tests/` antes de cada commit.
+  - Ejecutar `node --test` antes de cada commit.
   - Mantener la lógica pura separada del DOM.
   - Botones grandes y fáciles de pulsar, con buen contraste.
   - Que el juego funcione con el sonido bloqueado o en silencio.

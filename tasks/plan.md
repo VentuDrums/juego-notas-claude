@@ -26,7 +26,7 @@ i18n.js ───┤   audio.js ──┤
 ## Lista de tareas
 
 ### Fase 1: primera porción jugable
-- [ ] Tarea 1: Lógica de notas y textos
+- [x] Tarea 1: Lógica de notas y textos
 - [ ] Tarea 2: Una nota en pantalla y responder
 
 ### Punto de control 1
