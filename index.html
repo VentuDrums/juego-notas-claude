@@ -14,6 +14,26 @@
       <button type="button" id="mute" class="icon"></button>
     </header>
 
+    <section id="home" data-screen hidden>
+      <h2 data-i18n="chooseMode"></h2>
+      <div class="actions">
+        <button type="button" id="solo" class="primary" data-i18n="solo"></button>
+        <button type="button" id="board" data-i18n="board" disabled></button>
+      </div>
+      <div class="langs">
+        <button type="button" data-lang="es">Español</button>
+        <button type="button" data-lang="en">English</button>
+      </div>
+    </section>
+
+    <section id="choose-level" data-screen hidden>
+      <h2 data-i18n="chooseLevel"></h2>
+      <div id="levels" class="actions"></div>
+      <div class="actions">
+        <button type="button" data-go="home" data-i18n="back"></button>
+      </div>
+    </section>
+
     <section id="play" data-screen hidden>
       <div class="bar">
         <span id="progress"></span>
@@ -32,6 +52,8 @@
       <p id="final-hits"></p>
       <div class="actions">
         <button type="button" id="again" class="primary" data-i18n="playAgain"></button>
+        <button type="button" data-go="choose-level" data-i18n="changeLevel"></button>
+        <button type="button" data-go="home" data-i18n="home"></button>
       </div>
     </section>
   </main>

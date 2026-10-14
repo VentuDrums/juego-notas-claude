@@ -50,7 +50,7 @@ Comandos: `node --test` (tests) · `python3 -m http.server 8000` (probar en loca
   - Archivos: `src/scoring.js`, `tests/scoring.test.js`, `src/app.js`, `src/i18n.js`, `styles.css`
   - Depende de: 2
 
-- [ ] **Tarea 5: Inicio, niveles, récords e idioma** (M)
+- [x] **Tarea 5: Inicio, niveles, récords e idioma** (M)
   - Qué: pantalla de inicio con "Individual / Pizarra", selector ES/EN y silencio. Selector de los 4 niveles (todos libres) con el récord de cada uno. `storage.js` guarda récords, idioma y silencio. Todos los textos, también en inglés A1.
   - Aceptación:
     - El récord se guarda al recargar.

@@ -3,10 +3,13 @@ import { QUESTIONS, answer, isFinished, isNewRecord, newGame } from './scoring.j
 import { playCorrect, playNote, playWrong, setMuted, unlockAudio } from './audio.js';
 import { t } from './i18n.js';
 import { staffSvg } from './staff.js';
+import { load, save } from './storage.js';
 
 const $ = (id) => document.getElementById(id);
 
-const state = { lang: 'es', muted: false, level: 3, note: null, game: null, deadline: 0, timer: null, locked: true };
+const saved = load();
+const state = { ...saved, level: 1, note: null, game: null, deadline: 0, timer: null, locked: true };
+setMuted(state.muted);
 
 function show(screen) {
   document.querySelectorAll('[data-screen]').forEach((el) => (el.hidden = el.id !== screen));
@@ -14,11 +17,30 @@ function show(screen) {
 
 function renderTexts() {
   document.documentElement.lang = state.lang;
+  document.title = t(state.lang, 'title');
   document.querySelectorAll('[data-i18n]').forEach((el) => (el.textContent = t(state.lang, el.dataset.i18n)));
   $('answers').innerHTML = LETTER_ORDER.map(
     (letter) => `<button type="button" data-letter="${letter}">${noteName(letter, state.lang)}</button>`,
   ).join('');
+  document.querySelectorAll('[data-lang]').forEach((el) => el.setAttribute('aria-pressed', String(el.dataset.lang === state.lang)));
   renderMute();
+  renderLevels();
+}
+
+function persist() {
+  save({ lang: state.lang, muted: state.muted, best: state.best });
+}
+
+function renderLevels() {
+  $('levels').innerHTML = Object.keys(LEVELS)
+    .map((level) => {
+      const best = state.best[level];
+      return `<button type="button" data-level="${level}">
+        <span>${t(state.lang, `level${level}`)}</span>
+        <small>${t(state.lang, 'best')}: ${best ?? '—'}</small>
+      </button>`;
+    })
+    .join('');
 }
 
 function renderMute() {
@@ -74,7 +96,12 @@ function showResult() {
   const { score, hits } = state.game;
   $('final-score').textContent = `${t(state.lang, 'points')}: ${score}`;
   $('final-hits').textContent = `${t(state.lang, 'hits')}: ${hits} / ${QUESTIONS}`;
-  $('new-record').hidden = !isNewRecord(score, undefined);
+  const record = isNewRecord(score, state.best[state.level]);
+  if (record) {
+    state.best[state.level] = score;
+    persist();
+  }
+  $('new-record').hidden = !record;
   show('result');
 }
 
@@ -90,7 +117,32 @@ $('mute').addEventListener('click', () => {
   state.muted = !state.muted;
   setMuted(state.muted);
   renderMute();
+  persist();
 });
+
+$('home').addEventListener('click', (event) => {
+  const lang = event.target.closest('[data-lang]')?.dataset.lang;
+  if (lang) {
+    state.lang = lang;
+    renderTexts();
+    persist();
+  }
+  if (event.target.closest('#solo')) show('choose-level');
+});
+
+$('levels').addEventListener('click', (event) => {
+  const button = event.target.closest('[data-level]');
+  if (!button) return;
+  unlockAudio();
+  startGame(Number(button.dataset.level));
+});
+
+document.querySelectorAll('[data-go]').forEach((el) =>
+  el.addEventListener('click', () => {
+    renderLevels();
+    show(el.dataset.go);
+  }),
+);
 
 $('again').addEventListener('click', () => {
   unlockAudio();
@@ -98,4 +150,4 @@ $('again').addEventListener('click', () => {
 });
 
 renderTexts();
-startGame(state.level);
+show('home');

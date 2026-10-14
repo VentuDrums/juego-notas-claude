@@ -37,7 +37,7 @@ i18n.js ───┤   audio.js ──┤
 ### Fase 2: modo individual completo
 - [x] Tarea 3: Sonido
 - [x] Tarea 4: Partida de 20 notas con puntos y tiempo
-- [ ] Tarea 5: Inicio, niveles, récords e idioma
+- [x] Tarea 5: Inicio, niveles, récords e idioma
 
 ### Punto de control 2
 - [ ] Modo individual de principio a fin, en ES y EN
