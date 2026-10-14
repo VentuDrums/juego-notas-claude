@@ -49,14 +49,15 @@ i18n.js ───┤   audio.js ──┤
 
 ### Punto de control 3
 - [x] Partida de 10 rondas completa en 16:9 con toques simultáneos (simulados)
-- [ ] Revisión contigo
+- [x] Revisión contigo
 
 ### Fase 4: publicar
-- [ ] Tarea 8: README y GitHub Pages
+- [x] Tarea 8: README y GitHub Pages
 
 ### Punto de control final
-- [ ] Todos los criterios de éxito de `SPEC.md` cumplidos
-- [ ] Probado por ti en el móvil y en la pizarra real
+- [x] Todos los criterios de éxito de `SPEC.md` cumplidos
+- [x] Probado por ti en el móvil
+- [ ] Probado en la pizarra real
 
 ## Riesgos y mitigaciones
 
