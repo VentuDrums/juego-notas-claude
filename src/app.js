@@ -8,6 +8,9 @@ import { answerRound, endRound, isMatchOver, isRoundOver, matchWinner, newMatch,
 
 const $ = (id) => document.getElementById(id);
 
+// iOS Safari only applies :active (the bar being struck) when the page listens for touches.
+document.addEventListener('touchstart', () => {}, { passive: true });
+
 const saved = load();
 const state = { ...saved, level: 1, note: null, game: null, deadline: 0, timer: null, pending: null, locked: true };
 setMuted(state.muted);
@@ -41,12 +44,18 @@ function persist() {
   save({ lang: state.lang, muted: state.muted, best: state.best });
 }
 
+function noteDots(level) {
+  const letters = [...new Set(LEVELS[level].notes.map((n) => n[0]))];
+  return `<span class="dots" aria-hidden="true">${letters.map((l) => `<i data-letter="${l}"></i>`).join('')}</span>`;
+}
+
 function renderLevels() {
   $('levels').innerHTML = Object.keys(LEVELS)
     .map((level) => {
       const best = state.best[level];
       return `<button type="button" data-level="${level}">
         <span>${t(state.lang, `level${level}`)}</span>
+        ${noteDots(level)}
         <small>${t(state.lang, 'best')}: ${best ?? '—'}</small>
       </button>`;
     })
@@ -55,7 +64,7 @@ function renderLevels() {
 
 function renderBoardSetup() {
   $('board-levels').innerHTML = Object.keys(LEVELS)
-    .map((level) => `<button type="button" data-board-level="${level}">${t(state.lang, `level${level}`)}</button>`)
+    .map((level) => `<button type="button" data-board-level="${level}">${t(state.lang, `level${level}`)}${noteDots(level)}</button>`)
     .join('');
   document.querySelectorAll('[data-board-level]').forEach((el) =>
     el.setAttribute('aria-pressed', String(Number(el.dataset.boardLevel) === board.level)),
@@ -80,6 +89,7 @@ function nextRound() {
   teams().forEach((team) => {
     team.classList.remove('blocked');
     team.querySelector('.team-staff').innerHTML = staffSvg(state.note, t(state.lang, 'readNote'));
+    team.querySelector('.team-staff').removeAttribute('data-hit');
     team.querySelector('.team-feedback').textContent = '';
   });
   $('round').textContent = `${t(state.lang, 'round')} ${board.match.played + 1} / ${board.match.rounds}`;
@@ -119,8 +129,14 @@ function showBoardResult() {
   show('board-result');
 }
 
+const SPEAKER = '<path d="M4 9h3l5-4v14l-5-4H4z" fill="currentColor" stroke="none" />';
+const ICONS = {
+  on: `<svg viewBox="0 0 24 24" aria-hidden="true">${SPEAKER}<path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11" /></svg>`,
+  off: `<svg viewBox="0 0 24 24" aria-hidden="true">${SPEAKER}<path d="M16 9.5l5 5M21 9.5l-5 5" /></svg>`,
+};
+
 function renderMute() {
-  $('mute').textContent = state.muted ? '🔇' : '🔊';
+  $('mute').innerHTML = state.muted ? ICONS.off : ICONS.on;
   $('mute').setAttribute('aria-label', t(state.lang, state.muted ? 'unmute' : 'mute'));
   $('mute').setAttribute('aria-pressed', String(state.muted));
 }
@@ -137,6 +153,7 @@ function nextNote() {
   if (isFinished(state.game)) return showResult();
   state.note = randomNote(state.level, state.note);
   $('staff').innerHTML = staffSvg(state.note, t(state.lang, 'readNote'));
+  $('staff').removeAttribute('data-hit');
   $('feedback').textContent = '';
   $('progress').textContent = `${t(state.lang, 'note')} ${state.game.count + 1} / ${QUESTIONS}`;
   $('score').textContent = `${t(state.lang, 'points')}: ${state.game.score}`;
@@ -155,6 +172,7 @@ function startTimer(bar, onTimeout) {
   const tick = () => {
     const left = secondsLeft();
     bar.style.width = `${(left / seconds) * 100}%`;
+    bar.classList.toggle('low', left / seconds < 0.3);
     if (left === 0) onTimeout();
   };
   state.timer = setInterval(tick, 100);
@@ -195,6 +213,7 @@ $('answers').addEventListener('click', (event) => {
   if (!button || state.locked) return;
   unlockAudio();
   const ok = button.dataset.letter === state.note[0];
+  if (ok) $('staff').dataset.hit = state.note[0];
   resolve(ok, secondsLeft(), ok ? 'correct' : 'wrong');
 });
 
@@ -254,7 +273,8 @@ document.querySelectorAll('.team').forEach((team) =>
     board.round = answerRound(board.round, side, ok);
     (ok ? playCorrect : playWrong)();
     teamFeedback(team, ok ? 'point' : 'missed', ok);
-    if (!ok) team.classList.add('blocked');
+    if (ok) team.querySelector('.team-staff').dataset.hit = state.note[0];
+    else team.classList.add('blocked');
     if (isRoundOver(board.round)) finishRound(false);
   }),
 );

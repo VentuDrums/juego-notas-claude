@@ -19,7 +19,7 @@ export function staffSvg(note, label) {
   return `<svg viewBox="0 18 200 108" role="img" aria-label="${label}">
     <g stroke="currentColor" stroke-width="1.5">${lines}${ledgers}</g>
     <path d="${CLEF}" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
-    <ellipse cx="${NOTE_X}" cy="${y(staffStep(note))}" rx="8" ry="5.5" transform="rotate(-20 ${NOTE_X} ${y(staffStep(note))})"
+    <ellipse class="note-head" cx="${NOTE_X}" cy="${y(staffStep(note))}" rx="8" ry="5.5" transform="rotate(-20 ${NOTE_X} ${y(staffStep(note))})"
       fill="none" stroke="currentColor" stroke-width="3" />
   </svg>`;
 }

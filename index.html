@@ -4,13 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Juego de notas</title>
+  <link rel="preload" href="fonts/rubik.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <script type="module" src="src/app.js"></script>
 </head>
 <body>
   <main>
     <header>
-      <h1 data-i18n="title"></h1>
+      <h1>
+        <svg class="mark" viewBox="0 0 28 24" aria-hidden="true">
+          <rect x="0" y="0" width="3" height="24" rx="1.5" style="fill: var(--note-C)" />
+          <rect x="4" y="2" width="3" height="20" rx="1.5" style="fill: var(--note-D)" />
+          <rect x="8" y="3.5" width="3" height="17" rx="1.5" style="fill: var(--note-E)" />
+          <rect x="12" y="5" width="3" height="14" rx="1.5" style="fill: var(--note-F)" />
+          <rect x="16" y="6" width="3" height="12" rx="1.5" style="fill: var(--note-G)" />
+          <rect x="20" y="7" width="3" height="10" rx="1.5" style="fill: var(--note-A)" />
+          <rect x="24" y="8" width="3" height="8" rx="1.5" style="fill: var(--note-B)" />
+        </svg>
+        <span data-i18n="title"></span>
+      </h1>
       <button type="button" id="mute" class="icon"></button>
     </header>
 
